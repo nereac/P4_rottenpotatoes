@@ -56,12 +56,43 @@ class MoviesController < ApplicationController
     flash[:notice] = "#{@movie.title} was successfully updated."
     redirect_to movie_path(@movie)
   end
-
+  
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
+  end
+
+  def similar
+    @movie = Movie.find params[:id]
+    if @movie.director
+      @movies = Movie.find_all_by_director(@movie.director)
+    else
+      flash[:notice] = "'#{@movie.title}' has no director info"
+      redirect_to movies_path
+    end
+  end
+
+
+  def search_tmdb
+    @movie_search = Movie.find_in_tmdb(params[:search_terms])
+
+    if @movie_search.class == PatchedOpenStruct
+      @movie = Movie.new
+      @movie.title = @movie_search.title if @movie_search.respond_to?(:title)
+      @movie.rating = @movie_search.rating if @movie_search.respond_to?(:rating)
+      @movie.director = @movie_search.crew[0].name rescue @movie.director = nil
+      @movie.release_date = @movie_search.release_date if @movie_search.respond_to?(:release_date)
+      @movie.description = @movie_search.overview if @movie_search.respond_to?(:overview)
+    elsif @movie_search == []
+      flash[:notice] = "'#{params[:search_terms]}' was not found in TMDb."
+      redirect_to movies_path
+    end
+
+    rescue Movie::InvalidKeyError
+      flash[:warning] = "Search not available."
+      redirect_to movies_path
   end
 
 end
