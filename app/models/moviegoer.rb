@@ -1,4 +1,5 @@
 
+
 class Moviegoer < ActiveRecord::Base
   include ActiveModel::MassAssignmentSecurity
   attr_accessible :uid, :provider, :name
