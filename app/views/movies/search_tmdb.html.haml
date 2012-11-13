@@ -1,0 +1,27 @@
+-# search_tmdb.html.haml 
+
+%h1 Search TMDB Movie
+
+%h2 Movie: #{@movie.title}
+
+= form_tag movies_path do
+
+  = label :movie, :title, 'Title'
+  = text_field :movie, :title
+
+  = label :movie, :rating, 'Rating'
+  = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+
+  = label :movie, :director, 'Director'
+  = text_field :movie, 'director'
+
+  = label :movie, :release_date, 'Released On'
+  = text_field :movie, :release_date
+
+  = label :movie, :description, 'Description'
+  = text_area :movie, :description, :cols => 40, :rows => 15
+
+  = submit_tag 'Add to Movie List'
+
+= button_to 'Cancel', movies_path, :method => :get
+
