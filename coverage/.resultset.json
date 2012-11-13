@@ -1,16 +1,18 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/nerea/P4_rottenpotatoes/app/controllers/application_controller.rb": [
+      "/home/nerea/Escritorio/P4_rottenpotatoes/app/controllers/application_controller.rb": [
+        null,
         1,
+        null,
+        null,
+        null
+      ],
+      "/home/nerea/Escritorio/P4_rottenpotatoes/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/nerea/P4_rottenpotatoes/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/home/nerea/P4_rottenpotatoes/app/helpers/movies_helper.rb": [
+      "/home/nerea/Escritorio/P4_rottenpotatoes/app/helpers/movies_helper.rb": [
         1,
         null,
         1,
@@ -18,7 +20,7 @@
         null,
         null
       ],
-      "/home/nerea/P4_rottenpotatoes/app/controllers/movies_controller.rb": [
+      "/home/nerea/Escritorio/P4_rottenpotatoes/app/controllers/movies_controller.rb": [
         1,
         null,
         1,
@@ -118,7 +120,7 @@
         null,
         null
       ],
-      "/home/nerea/P4_rottenpotatoes/app/models/movie.rb": [
+      "/home/nerea/Escritorio/P4_rottenpotatoes/app/models/movie.rb": [
         1,
         null,
         1,
@@ -149,6 +151,6 @@
         null
       ]
     },
-    "timestamp": 1352820899
+    "timestamp": 1352826533
   }
 }

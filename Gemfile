@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'ruby-tmdb3'
-gem 'omniauth-twitter'
 
 gem 'rails', '3.2.8'
 
